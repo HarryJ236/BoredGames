@@ -3,9 +3,30 @@ body, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Orbitron', sans-serif; /* Main font for everything except title */
+  background-color: #000000; /* Black background for retro theme */
   color: white;
-  background-color: #001140; /* Single shade of dark blue */
+}
+
+/* Neon Blue Flash Animation */
+@keyframes neon-blue-flash {
+  0%, 100% {
+    text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+  }
+  50% {
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF;
+  }
+}
+
+@keyframes navbar-blue-flash {
+  0%, 100% {
+    border-color: #00FFFF;
+    box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF;
+  }
+  50% {
+    border-color: #00FFFF;
+    box-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 80px #00FFFF;
+  }
 }
 
 /* Top Navbar */
@@ -14,8 +35,9 @@ body, html {
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background-color: #001140; /* Dark blue */
-  border-bottom: 2px solid #EFC251; /* Accent yellow */
+  background-color: #000000; /* Semi-black background */
+  border-bottom: 2px solid #00FFFF; /* Neon blue */
+  animation: navbar-blue-flash 2s infinite; /* Neon blue flashing animation */
 }
 
 .logo-container {
@@ -31,8 +53,9 @@ body, html {
 
 .site-name {
   font-size: 1.8rem;
-  font-family: 'Playfair Display', serif; /* Bold and stylish font for the logo */
-  color: #EFC251; /* Accent yellow */
+  font-family: 'Press Start 2P', cursive; /* Retro arcade font for the title */
+  color: white;
+  animation: neon-blue-flash 2s infinite; /* Continuous neon blue flashing effect */
 }
 
 .user-container {
@@ -45,30 +68,29 @@ body, html {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #EFC251;
+  background-color: #00FFFF; /* Neon blue */
 }
 
 .account-name {
   font-size: 1rem;
-  font-family: 'Poppins', sans-serif; /* Consistent font */
-  color: #EFC251;
+  color: white; /* White text for contrast */
 }
 
 .auth-button {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   font-size: 1rem;
   color: white;
-  background-color: #EFC251;
+  background-color: #111111; /* Semi-black button background */
   padding: 8px 15px;
-  border: none;
-  border-radius: 20px; /* Rounded button */
+  border: 2px solid #00FFFF; /* Neon blue outline */
+  border-radius: 5px; /* Subtle rounding */
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .auth-button:hover {
-  background-color: #ffdc7a;
-  color: #001140;
+  background-color: #333333; /* Slightly lighter black when hovered */
+  box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF; /* Neon blue flashing on hover */
   transform: scale(1.05); /* Slight zoom effect */
 }
 
@@ -76,10 +98,10 @@ body, html {
 .secondary-navbar {
   display: flex;
   justify-content: center;
-  gap: 40px; /* Increased space between navbar options */
+  gap: 40px; /* Spacing between navbar options */
   padding: 10px 0;
-  background-color: #001140;
-  border-bottom: 2px solid #EFC251; /* Slightly thinner border */
+  border-bottom: 2px solid #00FFFF; /* Neon blue outline */
+  animation: navbar-blue-flash 2s infinite; /* Neon blue flashing animation */
 }
 
 .nav-link {
@@ -87,12 +109,13 @@ body, html {
   text-decoration: none;
   font-size: 1.2rem;
   padding: 10px 20px;
-  transition: all 0.3s ease;
+  border: 2px solid transparent; /* Transparent border by default */
+  transition: all 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-link:hover {
-  background-color: #EFC251;
-  color: #001140;
+  border: 2px solid #00FFFF; /* Neon blue when hovered */
+  box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF; /* Neon blue flashing on hover */
   transform: scale(1.05); /* Slight zoom effect */
 }
 
@@ -104,31 +127,36 @@ body, html {
 
 .main-content h1 {
   font-size: 3rem;
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 20px;
+  font-family: 'Press Start 2P', cursive; /* Retro arcade font for main heading */
+  color: white; /* White by default */
+}
+
+.main-content h1:hover {
+  animation: neon-blue-flash 1s infinite; /* Neon blue flashing effect on hover */
 }
 
 .main-content p {
   font-size: 1.5rem;
-  font-family: 'Poppins', sans-serif; /* Consistent font */
+  font-family: 'Orbitron', sans-serif; /* Consistent font */
   margin-bottom: 30px;
   line-height: 1.6;
 }
 
 .cta-button {
-  background-color: #EFC251; /* Accent yellow */
-  color: #001140; /* Contrast for better readability */
-  font-size: 1.5rem;
-  font-family: 'Poppins', sans-serif; /* Consistent font */
+  background-color: #111111; /* Semi-black button background */
+  color: white; /* White text */
+  font-size: 1.2rem;
+  font-family: 'Orbitron', sans-serif; /* Consistent font */
   padding: 15px 30px;
-  border: none;
-  border-radius: 20px; /* Rounded button */
+  border: 3px solid #00FFFF; /* Neon blue outline */
+  border-radius: 5px; /* Subtle rounding */
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #ffdc7a; /* Lighter yellow for hover */
+  background-color: #333333; /* Slightly lighter black when hovered */
+  box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF; /* Neon blue flashing on hover */
   transform: translateY(-5px); /* Lift effect */
 }
 
@@ -136,7 +164,6 @@ body, html {
 .footer {
   text-align: center;
   padding: 15px 0;
-  background-color: #001140;
-  border-top: 2px solid #EFC251;
+  border-top: 2px solid #00FFFF; /* Neon blue outline */
   font-size: 1rem;
 }
