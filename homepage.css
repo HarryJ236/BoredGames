@@ -41,6 +41,13 @@ body, html {
   gap: 15px;
 }
 
+.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #EFC251;
+}
+
 .account-name {
   font-size: 1rem;
   font-family: 'Poppins', sans-serif; /* Consistent font */
