@@ -3,9 +3,9 @@ body, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Comic Neue', cursive; /* Fun and playful font */
+  font-family: 'Poppins', sans-serif;
   color: white;
-  background-color: #000a23; /* Dark navy blue */
+  background-color: #001140; /* Single shade of dark blue */
 }
 
 /* Top Navbar */
@@ -13,9 +13,9 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 15px 20px;
   background-color: #001140; /* Dark blue */
-  border-bottom: 4px solid #ffcc00; /* Bright yellow */
+  border-bottom: 2px solid #EFC251; /* Accent yellow */
 }
 
 .logo-container {
@@ -31,8 +31,8 @@ body, html {
 
 .site-name {
   font-size: 1.8rem;
-  font-family: 'Pacifico', cursive;
-  color: #ffcc00;
+  font-family: 'Playfair Display', serif; /* Bold and stylish font */
+  color: #EFC251; /* Accent yellow */
 }
 
 .user-container {
@@ -43,28 +43,25 @@ body, html {
 
 .account-name {
   font-size: 1rem;
-  color: #ffcc00;
+  font-family: 'Poppins', sans-serif;
+  color: #EFC251;
 }
 
-.user-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-.auth-link {
-  color: white;
-  text-decoration: none;
+.auth-button {
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
-  padding: 5px 10px;
-  border-radius: 5px;
-  background-color: transparent;
-  transition: background-color 0.3s ease;
+  color: white;
+  background-color: #EFC251;
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.auth-link:hover {
-  background-color: #ffcc00;
+.auth-button:hover {
+  background-color: #ffdc7a;
   color: #001140;
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* Secondary Navbar */
@@ -74,21 +71,21 @@ body, html {
   gap: 20px;
   padding: 10px 0;
   background-color: #001140;
-  border-bottom: 4px solid #ffcc00;
+  border-bottom: 2px solid #EFC251; /* Slightly thinner border */
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
-  padding: 8px 15px;
-  border-radius: 20px;
+  padding: 10px 20px;
   transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-  background-color: #ffcc00;
+  background-color: #EFC251;
   color: #001140;
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* Main Content Section */
@@ -99,31 +96,30 @@ body, html {
 
 .main-content h1 {
   font-size: 3rem;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Poppins', sans-serif;
   margin-bottom: 20px;
 }
 
 .main-content p {
   font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif;
   margin-bottom: 30px;
   line-height: 1.6;
 }
 
 .cta-button {
-  background-color: #ffcc00;
-  color: #001140;
+  background-color: #EFC251; /* Accent yellow */
+  color: #001140; /* Contrast for better readability */
   font-size: 1.5rem;
-  font-family: 'Comic Neue', cursive;
   padding: 15px 30px;
   border: none;
-  border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #ffd633;
-  transform: translateY(-5px);
+  background-color: #ffdc7a; /* Lighter yellow for hover */
+  transform: translateY(-5px); /* Lift effect */
 }
 
 /* Footer Section */
@@ -131,6 +127,6 @@ body, html {
   text-align: center;
   padding: 15px 0;
   background-color: #001140;
-  border-top: 4px solid #ffcc00;
+  border-top: 2px solid #EFC251;
   font-size: 1rem;
 }
