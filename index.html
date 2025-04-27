@@ -8,19 +8,27 @@
   <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
-  <!-- Header Section -->
-  <header class="header">
+  <!-- Top Navbar -->
+  <header class="top-navbar">
     <div class="logo-container">
       <img src="assets/images/logo.png" alt="BoredGames Logo" class="logo">
       <span class="site-name">BoredGames</span>
     </div>
-    <nav class="navbar">
-      <a href="pages/shop/shop.html" class="nav-link">Shop</a>
-      <a href="pages/games/games.html" class="nav-link">Games</a>
-      <a href="pages/users/users.html" class="nav-link">Users</a>
-      <a href="pages/about/about.html" class="nav-link active">About</a>
-    </nav>
+    <div class="user-container">
+      <span class="account-name">Guest</span>
+      <img src="assets/images/user-icon.png" alt="User Icon" class="user-icon">
+      <a href="login.html" class="auth-link">Login</a>
+      <a href="signup.html" class="auth-link">Sign Up</a>
+    </div>
   </header>
+
+  <!-- Secondary Navbar -->
+  <nav class="secondary-navbar">
+    <a href="pages/shop/shop.html" class="nav-link">Shop</a>
+    <a href="pages/users/users.html" class="nav-link">Users</a>
+    <a href="pages/about/about.html" class="nav-link">About</a>
+    <a href="pages/games/games.html" class="nav-link">Games</a>
+  </nav>
 
   <!-- Main Content Section -->
   <main class="main-content">
