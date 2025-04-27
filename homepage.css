@@ -8,14 +8,14 @@ body, html {
   background-color: #000a23; /* Dark navy blue */
 }
 
-/* Header Section */
-.header {
+/* Top Navbar */
+.top-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
-  background-color: #001140; /* Slightly lighter dark blue */
-  border-bottom: 4px solid #ffcc00; /* Bright yellow for a playful accent */
+  padding: 10px 20px;
+  background-color: #001140; /* Dark blue */
+  border-bottom: 4px solid #ffcc00; /* Bright yellow */
 }
 
 .logo-container {
@@ -24,20 +24,57 @@ body, html {
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   margin-right: 10px;
 }
 
 .site-name {
-  font-size: 2rem;
-  font-family: 'Pacifico', cursive; /* Fancy and playful font */
-  color: #ffcc00; /* Bright yellow for fun branding */
+  font-size: 1.8rem;
+  font-family: 'Pacifico', cursive;
+  color: #ffcc00;
 }
 
-.navbar {
+.user-container {
   display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.account-name {
+  font-size: 1rem;
+  color: #ffcc00;
+}
+
+.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.auth-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.auth-link:hover {
+  background-color: #ffcc00;
+  color: #001140;
+}
+
+/* Secondary Navbar */
+.secondary-navbar {
+  display: flex;
+  justify-content: center;
   gap: 20px;
+  padding: 10px 0;
+  background-color: #001140;
+  border-bottom: 4px solid #ffcc00;
 }
 
 .nav-link {
@@ -46,20 +83,12 @@ body, html {
   font-size: 1.2rem;
   padding: 8px 15px;
   border-radius: 20px;
-  background-color: transparent;
   transition: all 0.3s ease;
 }
 
 .nav-link:hover {
   background-color: #ffcc00;
   color: #001140;
-  transform: scale(1.1); /* Slight zoom for hover effect */
-}
-
-.nav-link.active {
-  background-color: #ffcc00;
-  color: #001140;
-  font-weight: bold;
 }
 
 /* Main Content Section */
@@ -81,8 +110,8 @@ body, html {
 }
 
 .cta-button {
-  background-color: #ffcc00; /* Bright yellow for playful vibe */
-  color: #001140; /* Contrast for better readability */
+  background-color: #ffcc00;
+  color: #001140;
   font-size: 1.5rem;
   font-family: 'Comic Neue', cursive;
   padding: 15px 30px;
@@ -94,7 +123,7 @@ body, html {
 
 .cta-button:hover {
   background-color: #ffd633;
-  transform: translateY(-5px); /* Lift effect */
+  transform: translateY(-5px);
 }
 
 /* Footer Section */
