@@ -3,9 +3,9 @@ body, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Comic Neue', cursive; /* Fun and playful font */
   color: white;
-  background-color: #001f3f; /* Navy Blue */
+  background-color: #000a23; /* Dark navy blue */
 }
 
 /* Header Section */
@@ -13,9 +13,9 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #003366; /* Slightly lighter navy */
-  border-bottom: 2px solid #00aced;
+  padding: 15px 20px;
+  background-color: #001140; /* Slightly lighter dark blue */
+  border-bottom: 4px solid #ffcc00; /* Bright yellow for a playful accent */
 }
 
 .logo-container {
@@ -24,15 +24,15 @@ body, html {
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   margin-right: 10px;
 }
 
 .site-name {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #00aced; /* Bright blue accent */
+  font-size: 2rem;
+  font-family: 'Pacifico', cursive; /* Fancy and playful font */
+  color: #ffcc00; /* Bright yellow for fun branding */
 }
 
 .navbar {
@@ -43,58 +43,65 @@ body, html {
 .nav-link {
   color: white;
   text-decoration: none;
-  font-size: 1rem;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  font-size: 1.2rem;
+  padding: 8px 15px;
+  border-radius: 20px;
+  background-color: transparent;
+  transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-  background-color: #00aced;
+  background-color: #ffcc00;
+  color: #001140;
+  transform: scale(1.1); /* Slight zoom for hover effect */
 }
 
 .nav-link.active {
-  background-color: #00aced;
+  background-color: #ffcc00;
+  color: #001140;
   font-weight: bold;
 }
 
 /* Main Content Section */
 .main-content {
   text-align: center;
-  padding: 50px 20px;
+  padding: 60px 20px;
 }
 
 .main-content h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
+  font-family: 'Pacifico', cursive;
   margin-bottom: 20px;
 }
 
 .main-content p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-bottom: 30px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .cta-button {
-  background-color: #00aced; /* Bright blue accent */
-  color: white;
-  font-size: 1.2rem;
-  padding: 10px 20px;
+  background-color: #ffcc00; /* Bright yellow for playful vibe */
+  color: #001140; /* Contrast for better readability */
+  font-size: 1.5rem;
+  font-family: 'Comic Neue', cursive;
+  padding: 15px 30px;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #007bb5; /* Slightly darker blue */
+  background-color: #ffd633;
+  transform: translateY(-5px); /* Lift effect */
 }
 
 /* Footer Section */
 .footer {
   text-align: center;
-  padding: 10px 0;
-  background-color: #003366; /* Slightly lighter navy */
-  border-top: 2px solid #00aced;
-  font-size: 0.9rem;
+  padding: 15px 0;
+  background-color: #001140;
+  border-top: 4px solid #ffcc00;
+  font-size: 1rem;
 }
