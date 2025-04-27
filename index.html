@@ -4,29 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BoredGames - Home</title>
-  <link rel="stylesheet" href="pages/about/about.css">
+  <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="top-navbar">
-      <div class="logo">
-        <img src="logo.png" alt="BoredGames Logo" class="logo-image">
-        <span class="site-name">BoredGames</span>
-      </div>
-      <div class="auth-links">
-        <a href="/login" class="nav-link">Login</a>
-        <a href="/signup" class="nav-link">Sign Up</a>
-        <a href="/account" class="nav-link">My Account</a>
-      </div>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="logo.png" alt="BoredGames Logo" class="logo">
+      <span class="site-name">BoredGames</span>
     </div>
-    <nav class="main-navbar">
-      <button class="nav-button" data-link="pages/shop/shop.html">Shop</button>
-      <button class="nav-button" data-link="pages/games/games.html">Games</button>
-      <button class="nav-button" data-link="pages/users/users.html">Users</button>
-      <button class="nav-button active" data-link="pages/about/about.html">About</button>
+    <nav class="navbar">
+      <a href="pages/shop/shop.html" class="nav-link">Shop</a>
+      <a href="pages/games/games.html" class="nav-link">Games</a>
+      <a href="pages/users/users.html" class="nav-link">Users</a>
+      <a href="pages/about/about.html" class="nav-link active">About</a>
     </nav>
   </header>
+
+  <!-- Main Content Section -->
+  <main class="main-content">
+    <h1>Welcome to BoredGames!</h1>
+    <p>
+      Explore our world of fun and excitement! Play games, shop for cool products, and connect with
+      other users in the community.
+    </p>
+    <button class="cta-button" onclick="navigateTo('pages/games/games.html')">Start Playing Games</button>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2025 BoredGames. All rights reserved.</p>
+  </footer>
+
+  <script src="homepage.js"></script>
+</body>
+</html>
 
   <!-- Main Content -->
   <main>
