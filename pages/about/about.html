@@ -3,24 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      background-color: #000000; /* Black */
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: 100vh;
-    }
+  <title>About - BoredGames</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../homepage.css">
+</head>
+<body>
+  <!-- Top Navbar -->
+  <header class="top-navbar">
+    <div class="logo-container">
+      <img src="../assets/images/logo.png" alt="BoredGames Logo" class="logo">
+      <a href="../index.html" class="site-name">BoredGames</a>
+    </div>
+    <div class="user-container">
+      <img src="../assets/images/user-icon.png" alt="User Icon" class="user-icon">
+      <span class="account-name">Guest</span>
+      <button class="auth-button">Login/Sign Up</button>
+    </div>
+  </header>
 
-    h1 {
+  <!-- Secondary Navbar -->
+  <nav class="secondary-navbar">
+    <a href="../pages/shop/shop.html" class="nav-link">Shop</a>
+    <a href="../pages/users/users.html" class="nav-link">Users</a>
+    <a href="../pages/about/about.html" class="nav-link">About</a>
+    <a href="../pages/games/games.html" class="nav-link">Games</a>
+  </nav>
+
+  <!-- Main Content Section -->
+  <main class="main-content">
+    <!-- About Section -->
+    <section class="about-section">
+      <h1>About</h1>
+      <h2>Welcome to BoredGames!</h2>
+      <p>
+        BoredGames is your go-to platform for fun and entertainment. Whether you're looking to play games, shop for cool board games, or connect with fellow enthusiasts, we've got you covered. Dive into the world of endless fun and discover your next favorite game today!
+      </p>
+    </section>
+
+    <!-- Updates Section -->
+    <section class="updates-section">
+      <h2>Updates</h2>
+      <p>
+        We are constantly working to improve BoredGames and bring new features to the platform. Stay tuned for upcoming updates, including more games, enhanced shopping experiences, and exciting community events!
+      </p>
+    </section>
+
+    <!-- Credits Section -->
+    <section class="credits-section">
+      <h2>Credits</h2>
+      <p>
+        BoredGames was created by a passionate team of developers and designers who love games as much as you do. Special thanks to our amazing community for their support and feedback!
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2025 BoredGames. All rights reserved.</p>
+  </footer>
+</body>
+</html>
       font-size: 3rem;
       margin-bottom: 20px;
     }
