@@ -29,6 +29,32 @@ body, html {
   }
 }
 
+/* Typewriter Effect */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typewriter {
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive; /* Retro arcade font */
+  color: white;
+  overflow: hidden; /* Hide the overflowing text */
+  border-right: 2px solid #00FFFF; /* Neon blue blinking cursor */
+  white-space: nowrap; /* Prevent the text from wrapping */
+  animation: typewriter 3s steps(10, end), blink 0.75s step-end infinite;
+}
+
 /* Top Navbar */
 .top-navbar {
   display: flex;
@@ -130,7 +156,6 @@ body, html {
   font-family: 'Press Start 2P', cursive; /* Retro arcade font for main heading */
   color: white;
   margin-bottom: 20px;
-  animation: neon-blue-flash 2s infinite; /* Neon blue flashing effect */
 }
 
 .main-content h2 {
