@@ -3,83 +3,39 @@ body, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Orbitron', sans-serif;
-  background-color: #000000;
+  font-family: 'Orbitron', sans-serif; /* Main font for everything except title */
+  background-color: #000000; /* Black background for retro theme */
   color: white;
 }
 
-/* Typewriter Effect */
-@keyframes typewriter {
-  from {
-    width: 0;
+/* Neon Blue Flash Animation */
+@keyframes neon-blue-flash {
+  0%, 100% {
+    text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 20px #00FFFF;
   }
-  to {
-    width: 100%;
+  50% {
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF;
   }
+}
 
-  @keyframes blink {
-    50% {
-      border-color: transparent;
-    }
+@keyframes navbar-blue-flash {
+  0%, 100% {
+    border-color: #00FFFF;
+    box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF;
+  }
+  50% {
+    border-color: #00FFFF;
+    box-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 80px #00FFFF;
   }
 }
 
 .typewriter {
   display: inline-block;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Press Start 2P', cursive; /* Retro arcade font */
   color: white;
-  overflow: hidden;
-  border-right: 2px solid #00FFFF; /* Neon blue cursor */
+  overflow: hidden; /* Hide the overflowing text */
+  border-right: 2px solid #00FFFF; /* Neon blue blinking cursor */
   white-space: nowrap;
-  animation: typewriter 8s steps(30, end), blink 1s step-end infinite;
-}
-
-/* Main Content */
-.main-content {
-  padding: 20px;
-  text-align: center;
-}
-
-.main-content h1.typewriter {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.main-content h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.main-content p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 15px 10px;
-  font-size: 0.9rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .main-content h1 {
-    font-size: 2rem;
-  }
-
-  .main-content p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-content h1 {
-    font-size: 1.8rem;
-  }
-
-  .main-content p {
-    font-size: 0.9rem;
-  }
+  animation: typewriter 8s steps(30, end), blink 1s step-end infinite; /* Slower typing speed */
+  text-decoration: none; /* Ensure no underline */
 }
