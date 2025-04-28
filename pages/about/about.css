@@ -52,7 +52,17 @@ body, html {
   overflow: hidden; /* Hide the overflowing text */
   border-right: 2px solid #00FFFF; /* Neon blue blinking cursor */
   white-space: nowrap; /* Prevent the text from wrapping */
-  animation: typewriter 3s steps(10, end), blink 0.75s step-end infinite;
+  animation: typewriter 8s steps(30, end), blink 1s step-end infinite; /* Slower typing speed */
+  text-decoration: none; /* Ensure no underline */
+}
+
+/* About Page Title */
+.main-content h1, .about-section h1 {
+  font-size: 3rem;
+  font-family: 'Press Start 2P', cursive; /* Retro arcade font for main heading */
+  color: white;
+  margin-bottom: 20px;
+  text-decoration: none; /* Remove the underline */
 }
 
 /* Top Navbar */
@@ -149,13 +159,6 @@ body, html {
 .main-content {
   padding: 60px 20px;
   text-align: center;
-}
-
-.main-content h1 {
-  font-size: 3rem;
-  font-family: 'Press Start 2P', cursive; /* Retro arcade font for main heading */
-  color: white;
-  margin-bottom: 20px;
 }
 
 .main-content h2 {
