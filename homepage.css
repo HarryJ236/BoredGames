@@ -18,17 +18,6 @@ body, html {
   }
 }
 
-@keyframes navbar-blue-flash {
-  0%, 100% {
-    border-color: #00FFFF;
-    box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF;
-  }
-  50% {
-    border-color: #00FFFF;
-    box-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 80px #00FFFF;
-  }
-}
-
 /* Top Navbar */
 .top-navbar {
   display: flex;
@@ -37,7 +26,7 @@ body, html {
   padding: 15px 20px;
   background-color: #000000; /* Semi-black background */
   border-bottom: 2px solid #00FFFF; /* Neon blue */
-  animation: navbar-blue-flash 2s infinite; /* Neon blue flashing animation */
+  flex-wrap: wrap; /* Allow wrapping on smaller devices */
 }
 
 .logo-container {
@@ -101,7 +90,6 @@ body, html {
   gap: 40px; /* Spacing between navbar options */
   padding: 10px 0;
   border-bottom: 2px solid #00FFFF; /* Neon blue outline */
-  animation: navbar-blue-flash 2s infinite; /* Neon blue flashing animation */
 }
 
 .nav-link {
@@ -119,77 +107,87 @@ body, html {
   transform: scale(1.05); /* Slight zoom effect */
 }
 
-/* Main Content Section */
+/* Main Content */
 .main-content {
-  text-align: center;
   padding: 60px 20px;
+  text-align: center;
 }
 
 .main-content h1 {
   font-size: 3rem;
   font-family: 'Press Start 2P', cursive; /* Retro arcade font for main heading */
-  color: white; /* White by default */
-}
-
-.main-content h1:hover {
-  animation: neon-blue-flash 1s infinite; /* Neon blue flashing effect on hover */
-}
-
-/* Typewriter Effect */
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-.typewriter {
-  display: inline-block;
-  font-family: 'Press Start 2P', cursive; /* Retro arcade font */
   color: white;
-  overflow: hidden; /* Hide the overflowing text */
-  border-right: 2px solid #00FFFF; /* Neon blue blinking cursor */
-  white-space: nowrap; 
-  animation: typewriter 6s steps(30, end), blink 1s step-end infinite; 
+  margin-bottom: 20px;
 }
 
 .main-content p {
-  font-size: 1.5rem;
-  font-family: 'Orbitron', sans-serif; /* Consistent font */
-  margin-bottom: 30px;
-  line-height: 1.6;
-}
-
-.cta-button {
-  background-color: #111111; /* Semi-black button background */
-  color: white; /* White text */
   font-size: 1.2rem;
-  font-family: 'Orbitron', sans-serif; /* Consistent font */
-  padding: 15px 30px;
-  border: 3px solid #00FFFF; /* Neon blue outline */
-  border-radius: 5px; /* Subtle rounding */
-  cursor: pointer;
-  transition: all 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
+  line-height: 1.6;
+  margin-bottom: 30px;
 }
 
-.cta-button:hover {
-  background-color: #333333; /* Slightly lighter black when hovered */
-  box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF; /* Neon blue flashing on hover */
-  transform: translateY(-5px); /* Lift effect */
-}
-
-/* Footer Section */
+/* Footer */
 .footer {
   text-align: center;
   padding: 15px 0;
   border-top: 2px solid #00FFFF; /* Neon blue outline */
   font-size: 1rem;
+}
+
+/* Responsive Design */
+
+/* For tablets and smaller devices */
+@media (max-width: 768px) {
+  .top-navbar {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start;
+  }
+
+  .secondary-navbar {
+    flex-direction: column; /* Stack nav links vertically */
+    gap: 20px;
+  }
+
+  .main-content h1 {
+    font-size: 2rem; /* Smaller font size for smaller screens */
+  }
+
+  .main-content p {
+    font-size: 1rem;
+  }
+
+  .auth-button {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+  .top-navbar {
+    padding: 10px;
+  }
+
+  .site-name {
+    font-size: 1.2rem; /* Smaller site name */
+  }
+
+  .secondary-navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .main-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .main-content p {
+    font-size: 0.9rem;
+  }
+
+  .auth-button {
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
 }
