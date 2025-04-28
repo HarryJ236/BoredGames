@@ -135,6 +135,32 @@ body, html {
   animation: neon-blue-flash 1s infinite; /* Neon blue flashing effect on hover */
 }
 
+/* Typewriter Effect */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typewriter {
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive; /* Retro arcade font */
+  color: white;
+  overflow: hidden; /* Hide the overflowing text */
+  border-right: 2px solid #00FFFF; /* Neon blue blinking cursor */
+  white-space: nowrap; /* Prevent the text from wrapping */
+  animation: typewriter 4s steps(30, end), blink 0.75s step-end infinite;
+}
+
 .main-content p {
   font-size: 1.5rem;
   font-family: 'Orbitron', sans-serif; /* Consistent font */
