@@ -3,30 +3,9 @@ body, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Orbitron', sans-serif; /* Main font for everything except title */
-  background-color: #000000; /* Black background for retro theme */
+  font-family: 'Orbitron', sans-serif;
+  background-color: #000000;
   color: white;
-}
-
-/* Neon Blue Flash Animation */
-@keyframes neon-blue-flash {
-  0%, 100% {
-    text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 20px #00FFFF;
-  }
-  50% {
-    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF;
-  }
-}
-
-@keyframes navbar-blue-flash {
-  0%, 100% {
-    border-color: #00FFFF;
-    box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF;
-  }
-  50% {
-    border-color: #00FFFF;
-    box-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 80px #00FFFF;
-  }
 }
 
 /* Typewriter Effect */
@@ -37,139 +16,42 @@ body, html {
   to {
     width: 100%;
   }
-}
 
-@keyframes blink {
-  50% {
-    border-color: transparent;
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
   }
 }
 
 .typewriter {
   display: inline-block;
-  font-family: 'Press Start 2P', cursive; /* Retro arcade font */
+  font-family: 'Press Start 2P', cursive;
   color: white;
-  overflow: hidden; /* Hide the overflowing text */
-  border-right: 2px solid #00FFFF; /* Neon blue blinking cursor */
-  white-space: nowrap; /* Prevent the text from wrapping */
-  animation: typewriter 8s steps(30, end), blink 1s step-end infinite; /* Slower typing speed */
-  text-decoration: none; /* Ensure no underline */
-}
-
-/* About Page Title */
-.main-content h1, .about-section h1 {
-  font-size: 3rem;
-  font-family: 'Press Start 2P', cursive; /* Retro arcade font for main heading */
-  color: white;
-  margin-bottom: 20px;
-  text-decoration: none; /* Remove the underline */
-}
-
-/* Top Navbar */
-.top-navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #000000; /* Semi-black background */
-  border-bottom: 2px solid #00FFFF; /* Neon blue */
-  animation: navbar-blue-flash 2s infinite; /* Neon blue flashing animation */
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-}
-
-.site-name {
-  font-size: 1.8rem;
-  font-family: 'Press Start 2P', cursive; /* Retro arcade font for the title */
-  color: white;
-  animation: neon-blue-flash 2s infinite; /* Continuous neon blue flashing effect */
-}
-
-.user-container {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.user-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #00FFFF; /* Neon blue */
-}
-
-.account-name {
-  font-size: 1rem;
-  color: white; /* White text for contrast */
-}
-
-.auth-button {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  color: white;
-  background-color: #111111; /* Semi-black button background */
-  padding: 8px 15px;
-  border: 2px solid #00FFFF; /* Neon blue outline */
-  border-radius: 5px; /* Subtle rounding */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.auth-button:hover {
-  background-color: #333333; /* Slightly lighter black when hovered */
-  box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF; /* Neon blue flashing on hover */
-  transform: scale(1.05); /* Slight zoom effect */
-}
-
-/* Secondary Navbar */
-.secondary-navbar {
-  display: flex;
-  justify-content: center;
-  gap: 40px; /* Spacing between navbar options */
-  padding: 10px 0;
-  border-bottom: 2px solid #00FFFF; /* Neon blue outline */
-  animation: navbar-blue-flash 2s infinite; /* Neon blue flashing animation */
-}
-
-.nav-link {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  border: 2px solid transparent; /* Transparent border by default */
-  transition: all 0.3s ease, box-shadow 0.3s ease;
-}
-
-.nav-link:hover {
-  border: 2px solid #00FFFF; /* Neon blue when hovered */
-  box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF; /* Neon blue flashing on hover */
-  transform: scale(1.05); /* Slight zoom effect */
+  overflow: hidden;
+  border-right: 2px solid #00FFFF; /* Neon blue cursor */
+  white-space: nowrap;
+  animation: typewriter 8s steps(30, end), blink 1s step-end infinite;
 }
 
 /* Main Content */
 .main-content {
-  padding: 60px 20px;
+  padding: 20px;
   text-align: center;
+}
+
+.main-content h1.typewriter {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
 .main-content h2 {
   font-size: 2rem;
-  color: white;
   margin-bottom: 15px;
 }
 
 .main-content p {
   font-size: 1.2rem;
-  font-family: 'Orbitron', sans-serif;
   line-height: 1.6;
   margin-bottom: 30px;
 }
@@ -177,7 +59,27 @@ body, html {
 /* Footer */
 .footer {
   text-align: center;
-  padding: 15px 0;
-  border-top: 2px solid #00FFFF; /* Neon blue outline */
-  font-size: 1rem;
+  padding: 15px 10px;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content h1 {
+    font-size: 2rem;
+  }
+
+  .main-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .main-content p {
+    font-size: 0.9rem;
+  }
 }
