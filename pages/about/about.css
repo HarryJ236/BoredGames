@@ -1,0 +1,155 @@
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif; /* Main font for everything except title */
+  background-color: #000000; /* Black background for retro theme */
+  color: white;
+}
+
+/* Neon Blue Flash Animation */
+@keyframes neon-blue-flash {
+  0%, 100% {
+    text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+  }
+  50% {
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF;
+  }
+}
+
+@keyframes navbar-blue-flash {
+  0%, 100% {
+    border-color: #00FFFF;
+    box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF;
+  }
+  50% {
+    border-color: #00FFFF;
+    box-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 80px #00FFFF;
+  }
+}
+
+/* Top Navbar */
+.top-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #000000; /* Semi-black background */
+  border-bottom: 2px solid #00FFFF; /* Neon blue */
+  animation: navbar-blue-flash 2s infinite; /* Neon blue flashing animation */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.site-name {
+  font-size: 1.8rem;
+  font-family: 'Press Start 2P', cursive; /* Retro arcade font for the title */
+  color: white;
+  animation: neon-blue-flash 2s infinite; /* Continuous neon blue flashing effect */
+}
+
+.user-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #00FFFF; /* Neon blue */
+}
+
+.account-name {
+  font-size: 1rem;
+  color: white; /* White text for contrast */
+}
+
+.auth-button {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: white;
+  background-color: #111111; /* Semi-black button background */
+  padding: 8px 15px;
+  border: 2px solid #00FFFF; /* Neon blue outline */
+  border-radius: 5px; /* Subtle rounding */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #333333; /* Slightly lighter black when hovered */
+  box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF; /* Neon blue flashing on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Secondary Navbar */
+.secondary-navbar {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Spacing between navbar options */
+  padding: 10px 0;
+  border-bottom: 2px solid #00FFFF; /* Neon blue outline */
+  animation: navbar-blue-flash 2s infinite; /* Neon blue flashing animation */
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: 2px solid transparent; /* Transparent border by default */
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-link:hover {
+  border: 2px solid #00FFFF; /* Neon blue when hovered */
+  box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF; /* Neon blue flashing on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Main Content */
+.main-content {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.main-content h1 {
+  font-size: 3rem;
+  font-family: 'Press Start 2P', cursive; /* Retro arcade font for main heading */
+  color: white;
+  margin-bottom: 20px;
+  animation: neon-blue-flash 2s infinite; /* Neon blue flashing effect */
+}
+
+.main-content h2 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.main-content p {
+  font-size: 1.2rem;
+  font-family: 'Orbitron', sans-serif;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px 0;
+  border-top: 2px solid #00FFFF; /* Neon blue outline */
+  font-size: 1rem;
+}
