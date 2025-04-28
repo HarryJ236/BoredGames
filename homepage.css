@@ -3,154 +3,104 @@ body, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Orbitron', sans-serif; /* Main font for everything except title */
-  background-color: #000000; /* Black background for retro theme */
+  font-family: 'Orbitron', sans-serif;
+  background-color: #000000;
   color: white;
 }
 
-/* Neon Blue Flash Animation */
-@keyframes neon-blue-flash {
-  0%, 100% {
-    text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+/* Typewriter Effect */
+@keyframes typewriter {
+  from {
+    width: 0;
   }
-  50% {
-    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF;
+  to {
+    width: 100%;
+  }
+
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
   }
 }
 
-/* Top Navbar */
-.top-navbar {
+.typewriter {
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  overflow: hidden;
+  border-right: 2px solid #00FFFF; /* Neon blue cursor */
+  white-space: nowrap;
+  animation: typewriter 6s steps(30, end), blink 1s step-end infinite;
+}
+
+/* Navbar Styles */
+.top-navbar, .secondary-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background-color: #000000; /* Semi-black background */
-  border-bottom: 2px solid #00FFFF; /* Neon blue */
   flex-wrap: wrap; /* Allow wrapping on smaller devices */
 }
 
 .logo-container {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .logo {
   width: 50px;
   height: 50px;
-  margin-right: 10px;
 }
 
 .site-name {
-  font-size: 1.8rem;
-  font-family: 'Press Start 2P', cursive; /* Retro arcade font for the title */
-  color: white;
-  animation: neon-blue-flash 2s infinite; /* Continuous neon blue flashing effect */
+  font-size: 1.5rem;
 }
 
 .user-container {
   display: flex;
   align-items: center;
-  gap: 15px;
-}
-
-.user-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #00FFFF; /* Neon blue */
-}
-
-.account-name {
-  font-size: 1rem;
-  color: white; /* White text for contrast */
+  gap: 10px;
 }
 
 .auth-button {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  color: white;
-  background-color: #111111; /* Semi-black button background */
-  padding: 8px 15px;
-  border: 2px solid #00FFFF; /* Neon blue outline */
-  border-radius: 5px; /* Subtle rounding */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.auth-button:hover {
-  background-color: #333333; /* Slightly lighter black when hovered */
-  box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF; /* Neon blue flashing on hover */
-  transform: scale(1.05); /* Slight zoom effect */
-}
-
-/* Secondary Navbar */
-.secondary-navbar {
-  display: flex;
-  justify-content: center;
-  gap: 40px; /* Spacing between navbar options */
-  padding: 10px 0;
-  border-bottom: 2px solid #00FFFF; /* Neon blue outline */
-}
-
-.nav-link {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  border: 2px solid transparent; /* Transparent border by default */
-  transition: all 0.3s ease, box-shadow 0.3s ease;
-}
-
-.nav-link:hover {
-  border: 2px solid #00FFFF; /* Neon blue when hovered */
-  box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF; /* Neon blue flashing on hover */
-  transform: scale(1.05); /* Slight zoom effect */
+  padding: 8px 12px;
+  font-size: 0.9rem;
 }
 
 /* Main Content */
 .main-content {
-  padding: 60px 20px;
+  padding: 20px;
   text-align: center;
 }
 
 .main-content h1 {
   font-size: 3rem;
-  font-family: 'Press Start 2P', cursive; /* Retro arcade font for main heading */
-  color: white;
   margin-bottom: 20px;
 }
 
 .main-content p {
   font-size: 1.2rem;
-  font-family: 'Orbitron', sans-serif;
   line-height: 1.6;
-  margin-bottom: 30px;
 }
 
 /* Footer */
 .footer {
   text-align: center;
-  padding: 15px 0;
-  border-top: 2px solid #00FFFF; /* Neon blue outline */
-  font-size: 1rem;
+  padding: 15px 10px;
+  font-size: 0.9rem;
 }
 
 /* Responsive Design */
-
-/* For tablets and smaller devices */
 @media (max-width: 768px) {
-  .top-navbar {
-    flex-direction: column; /* Stack items vertically */
+  .top-navbar, .secondary-navbar {
+    flex-direction: column;
     align-items: flex-start;
   }
 
-  .secondary-navbar {
-    flex-direction: column; /* Stack nav links vertically */
-    gap: 20px;
-  }
-
   .main-content h1 {
-    font-size: 2rem; /* Smaller font size for smaller screens */
+    font-size: 2rem;
   }
 
   .main-content p {
@@ -158,24 +108,18 @@ body, html {
   }
 
   .auth-button {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding: 6px 10px;
   }
 }
 
-/* For mobile phones */
 @media (max-width: 480px) {
   .top-navbar {
     padding: 10px;
   }
 
   .site-name {
-    font-size: 1.2rem; /* Smaller site name */
-  }
-
-  .secondary-navbar {
-    flex-direction: column;
-    gap: 10px;
+    font-size: 1.2rem;
   }
 
   .main-content h1 {
@@ -187,7 +131,7 @@ body, html {
   }
 
   .auth-button {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     padding: 5px 8px;
   }
 }
