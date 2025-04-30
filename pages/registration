@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - BoredGames</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../homepage.css">
+</head>
+<body>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-container"></div>
+
+     <!-- Main -->
+     <main class="main-content">
+        <h1 class="typewriter">Login</h1>
+        <section class="about-section">
+            <p> Login page coming soon</p>
+      <section class="registration-content">
+        <h1 class="typewriter">Sign Up</h1>
+        <section class="about-section">
+            <p> Sign Up page coming soon </p>
+        </section>
+
+        <!-- Updates Section -->
+        <section class="updates-section">
+            <h2>Updates</h2>
+            <p>
+                We are constantly working to improve BoredGames and bring new features to the platform. Stay tuned for upcoming updates, games, shopping experiences, and exciting community events!
+            </p>
+        </section>
+
+        <!-- Credits Section -->
+        <section class="credits-section">
+            <h2>Credits</h2>
+            <p>
+                BoredGames was created by Me. My junior developer is really lazy. C does no work, Cole has helped me more. I also made the graphics, so ya.
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 BoredGames. All rights reserved.</p>
+    </footer>
+
+    <!-- Navbar functions summoner -->
+    <script src="../../navbar.js"></script>
+</body>
+</html>
