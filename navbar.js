@@ -1,4 +1,4 @@
-// Load the navbar dynamically
+// Navbar Loader
 document.addEventListener("DOMContentLoaded", function () {
     fetch("/navbar.html")
         .then((response) => {
