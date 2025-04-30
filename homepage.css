@@ -1,4 +1,4 @@
-/* General Reset */
+/* General Stuff */
 body, html {
     margin: 0;
     padding: 0;
@@ -8,7 +8,7 @@ body, html {
     color: white;
 }
 
-/* Navbar Styles */
+/* Navbar setup */
 .top-navbar {
     display: flex;
     justify-content: space-between;
@@ -125,7 +125,7 @@ body, html {
     box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
     margin-bottom: 15px;
 
-/* Responsive Design */
+/* Navbar Design */
 @media (max-width: 768px) {
     .top-navbar {
         flex-direction: column;
