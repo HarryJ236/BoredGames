@@ -4,22 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login / Sign Up - BoredGames</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../homepage.css" />
+  <link rel="stylesheet" href="/homepage.css" />
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="/firebase-init.js"></script>
 </head>
-
 <body>
-  <!-- Navbar Placeholder -->
   <div id="navbar-container"></div>
 
-  <!-- Main -->
   <main class="main-content">
-    <h1 class="typewriter">Login / Sign Up</h1>
+    <h1>Login / Sign Up</h1>
 
-    <!-- Toggle between Sign-Up and Login forms -->
     <div id="formContainer">
-      <!-- Sign-Up Form -->
-      <section class="registration-content" id="signUpForm">
+      <!-- Sign-Up -->
+      <section id="signUpForm">
         <h2>Sign Up</h2>
         <input type="text" id="signupUsername" placeholder="Username" />
         <input type="email" id="signupEmail" placeholder="Email" />
@@ -29,8 +28,8 @@
         <button onclick="toggleForm('login')">Already have an account? Login</button>
       </section>
 
-      <!-- Login Form -->
-      <section class="login-content" id="loginForm" style="display: none;">
+      <!-- Login -->
+      <section id="loginForm" style="display: none;">
         <h2>Log In</h2>
         <input type="email" id="loginEmail" placeholder="Email" />
         <input type="password" id="loginPassword" placeholder="Password" />
@@ -46,14 +45,58 @@
     <p>&copy; 2025 BoredGames. All rights reserved.</p>
   </footer>
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="/navbar.js"></script>
+  <script>
+    function signUp() {
+      const username = document.getElementById("signupUsername").value.trim();
+      const email = document.getElementById("signupEmail").value.trim();
+      const password = document.getElementById("signupPassword").value;
 
-  <!-- Navbar logic -->
-  <script src="../../navbar.js"></script>
-  <!-- Auth logic -->
-  <script src="auth.js"></script>
+      if (!username || !email || !password) {
+        document.getElementById("signupStatus").textContent = "Please fill out all fields.";
+        return;
+      }
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          return db.collection("users").doc(user.uid).set({ username });
+        })
+        .then(() => {
+          document.getElementById("signupStatus").textContent = "Account created!";
+        })
+        .catch((error) => {
+          document.getElementById("signupStatus").textContent = "Error: " + error.message;
+        });
+    }
+
+    function logIn() {
+      const email = document.getElementById("loginEmail").value.trim();
+      const password = document.getElementById("loginPassword").value;
+
+      if (!email || !password) {
+        document.getElementById("loginStatus").textContent = "Please fill out both fields.";
+        return;
+      }
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          document.getElementById("loginStatus").textContent = "Logged in!";
+        })
+        .catch((error) => {
+          document.getElementById("loginStatus").textContent = "Login error: " + error.message;
+        });
+    }
+
+    function toggleForm(formType) {
+      document.getElementById("signUpForm").style.display = formType === "signup" ? "block" : "none";
+      document.getElementById("loginForm").style.display = formType === "login" ? "block" : "none";
+    }
+
+    auth.onAuthStateChanged(user => {
+      if (user) console.log("Logged in:", user.email);
+    });
+  </script>
 </body>
 </html>
