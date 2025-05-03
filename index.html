@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Elite Code fr fr--!>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - BoredGames</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./homepage.css">
+
+    <!-- Firebase App and Auth SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+
+    <script>
+      // Firebase config (replace with your actual config)
+      const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        messagingSenderId: "YOUR_SENDER_ID",
+        appId: "YOUR_APP_ID"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+    </script>
 </head>
 
 <body>
@@ -17,9 +36,18 @@
     <main class="main-content">
         <h1 class="typewriter">Welcome to BoredGames!</h1>
         <p>
-            This website is still underdevelopment but eventually you will be able to play games, shop and talk to other players, you can learn more in the about page. Also C is bum.
+            This website is still under development, but eventually you will be able to play games, shop, and chat with other players. 
+            You can learn more on the about page. Also, C is bum.
         </p>
-        <button class="cta-button" onclick="location.href='pages/games/games.html'">Start Playing Games</button>
+        
+        <!-- Login/Sign-Up Button -->
+        <div id="userActions">
+            <button id="startButton" class="cta-button" onclick="startPlaying()">Start Playing Games</button>
+            <button id="loginButton" class="cta-button" onclick="goToLogin()">Login / Sign Up</button>
+        </div>
+        
+        <!-- Welcome Message for Logged In Users -->
+        <p id="welcomeMessage" style="display: none;"></p>
     </main>
 
     <footer class="footer">
@@ -27,47 +55,34 @@
         <p>&copy; 2025 BoredGames. All rights reserved.</p>
     </footer>
 
-    <!-- Include Navbar Script -->
-    <script src="/navbar.js"></script>
-    <!-- Firebase App (Core SDK) -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script src="/navbar.js"></script>  <!-- Include Navbar Script -->
 
-<!-- Firebase Firestore SDK (for chat, saving data, etc) -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+    <script>
+      // Monitor authentication state
+      auth.onAuthStateChanged(user => {
+        if (user) {
+          // User is logged in
+          document.getElementById("loginButton").style.display = "none"; // Hide login/signup button
+          document.getElementById("startButton").style.display = "block"; // Show start button
+          document.getElementById("welcomeMessage").style.display = "block"; // Show welcome message
+          document.getElementById("welcomeMessage").innerHTML = "Welcome, " + user.email;
+        } else {
+          // User is logged out
+          document.getElementById("loginButton").style.display = "block"; // Show login/signup button
+          document.getElementById("startButton").style.display = "none"; // Hide start button
+          document.getElementById("welcomeMessage").style.display = "none"; // Hide welcome message
+        }
+      });
 
-<script>
-  // Your Firebase config (replace with yours)
- <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+      // Navigate to the login/signup page
+      function goToLogin() {
+        window.location.href = "pages/registration/registration.html"; // Make sure to update with your actual path
+      }
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCuekWtRk9TOUuchwgQ_qPZkc_BbJ0rQmQ",
-    authDomain: "boredgames-website.firebaseapp.com",
-    projectId: "boredgames-website",
-    storageBucket: "boredgames-website.firebasestorage.app",
-    messagingSenderId: "728925547202",
-    appId: "1:728925547202:web:f5a0da6d3df1ab66a7695b",
-    measurementId: "G-083HCSVHRF"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-  // Get Firestore
-  const db = firebase.firestore();
-</script>
-
+      // Placeholder function for "Start Playing Games"
+      function startPlaying() {
+        alert("Game section coming soon!");
+      }
+    </script>
 </body>
-
 </html>
