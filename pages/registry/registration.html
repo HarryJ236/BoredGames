@@ -1,129 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login / Sign Up - BoredGames</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../homepage.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Sign Up - BoredGames</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../homepage.css" />
 
-    <!-- Firebase App and Auth SDK -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+  <!-- Firebase App and Auth SDK (Compat version) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 
-    <script>
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyCuekWtRk9TOUuchwgQ_qPZkc_BbJ0rQmQ",
-          authDomain: "boredgames-website.firebaseapp.com",
-          projectId: "boredgames-website",
-          storageBucket: "boredgames-website.firebasestorage.app",
-          messagingSenderId: "728925547202",
-          appId: "1:728925547202:web:f5a0da6d3df1ab66a7695b",
-          measurementId: "G-083HCSVHRF"
-        };
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCuekWtRk9TOUuchwgQ_qPZkc_BbJ0rQmQ",
+      authDomain: "boredgames-website.firebaseapp.com",
+      projectId: "boredgames-website",
+      storageBucket: "boredgames-website.firebasestorage.app",
+      messagingSenderId: "728925547202",
+      appId: "1:728925547202:web:f5a0da6d3df1ab66a7695b",
+      measurementId: "G-083HCSVHRF"
+    };
 
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      const auth = firebase.auth();
-    </script>
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+  </script>
 </head>
 
 <body>
-    <!-- Navbar Placeholder -->
-    <div id="navbar-container"></div>
+  <!-- Navbar Placeholder -->
+  <div id="navbar-container"></div>
 
-    <!-- Main -->
-    <main class="main-content">
-        <h1 class="typewriter">Login / Sign Up</h1>
+  <!-- Main -->
+  <main class="main-content">
+    <h1 class="typewriter">Login / Sign Up</h1>
 
-        <!-- Toggle between Sign-Up and Login forms -->
-        <div id="formContainer">
-            <!-- Sign-Up Form -->
-            <section class="registration-content" id="signUpForm">
-                <h2>Sign Up</h2>
-                <input type="email" id="signupEmail" placeholder="Email" />
-                <input type="password" id="signupPassword" placeholder="Password" />
-                <button onclick="signUp()">Sign Up</button>
-                <p id="signupStatus"></p>
-                <button onclick="toggleForm('login')">Already have an account? Login</button>
-            </section>
+    <!-- Toggle between Sign-Up and Login forms -->
+    <div id="formContainer">
+      <!-- Sign-Up Form -->
+      <section class="registration-content" id="signUpForm">
+        <h2>Sign Up</h2>
+        <input type="email" id="signupEmail" placeholder="Email" />
+        <input type="password" id="signupPassword" placeholder="Password" />
+        <button onclick="signUp()">Sign Up</button>
+        <p id="signupStatus"></p>
+        <button onclick="toggleForm('login')">Already have an account? Login</button>
+      </section>
 
-            <!-- Login Form -->
-            <section class="login-content" id="loginForm" style="display: none;">
-                <h2>Log In</h2>
-                <input type="email" id="loginEmail" placeholder="Email" />
-                <input type="password" id="loginPassword" placeholder="Password" />
-                <button onclick="logIn()">Log In</button>
-                <p id="loginStatus"></p>
-                <button onclick="toggleForm('signup')">Don't have an account? Sign Up</button>
-            </section>
-        </div>
-    </main>
-    <body>
-        
-    <!-- Navbar functions summoner -->
-    <script src="../../navbar.js"></script>
+      <!-- Login Form -->
+      <section class="login-content" id="loginForm" style="display: none;">
+        <h2>Log In</h2>
+        <input type="email" id="loginEmail" placeholder="Email" />
+        <input type="password" id="loginPassword" placeholder="Password" />
+        <button onclick="logIn()">Log In</button>
+        <p id="loginStatus"></p>
+        <button onclick="toggleForm('signup')">Don't have an account? Sign Up</button>
+      </section>
+    </div>
+  </main>
 
-    <footer class="footer">
-        <div class="footer-divider"></div>
-        <p>&copy; 2025 BoredGames. All rights reserved.</p>
-    </footer>
+  <!-- Navbar functions summoner -->
+  <script src="../../navbar.js"></script>
 
-    <script>
-        // Sign-Up Function
-        function signUp() {
-            const email = document.getElementById("signupEmail").value;
-            const password = document.getElementById("signupPassword").value;
+  <footer class="footer">
+    <div class="footer-divider"></div>
+    <p>&copy; 2025 BoredGames. All rights reserved.</p>
+  </footer>
 
-            auth.createUserWithEmailAndPassword(email, password)
-              .then((userCredential) => {
-                const user = userCredential.user;
-                document.getElementById("signupStatus").textContent = "Account created for " + user.email;
-              })
-              .catch((error) => {
-                document.getElementById("signupStatus").textContent = "Error: " + error.message;
-              });
-        }
+  <!-- Firebase Auth Logic -->
+  <script>
+    // Sign-Up Function
+    function signUp() {
+      const email = document.getElementById("signupEmail").value;
+      const password = document.getElementById("signupPassword").value;
 
-        // Log-In Function
-        function logIn() {
-            const email = document.getElementById("loginEmail").value;
-            const password = document.getElementById("loginPassword").value;
+      if (!email || !password) {
+        document.getElementById("signupStatus").textContent = "Please fill out both fields.";
+        return;
+      }
 
-            auth.signInWithEmailAndPassword(email, password)
-              .then((userCredential) => {
-                const user = userCredential.user;
-                document.getElementById("loginStatus").textContent = "Logged in as " + user.email;
-              })
-              .catch((error) => {
-                document.getElementById("loginStatus").textContent = "Login error: " + error.message;
-              });
-        }
-
-        // Toggle between Sign-Up and Login forms
-        function toggleForm(formType) {
-            const signUpForm = document.getElementById("signUpForm");
-            const loginForm = document.getElementById("loginForm");
-
-            if (formType === "signup") {
-                signUpForm.style.display = "block";
-                loginForm.style.display = "none";
-            } else {
-                signUpForm.style.display = "none";
-                loginForm.style.display = "block";
-            }
-        }
-
-        // Monitor Authentication State
-        auth.onAuthStateChanged(user => {
-            if (user) {
-                console.log("Logged in as " + user.email);
-            } else {
-                console.log("User logged out.");
-            }
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          document.getElementById("signupStatus").textContent = "Account created for " + user.email;
+        })
+        .catch((error) => {
+          document.getElementById("signupStatus").textContent = "Error: " + error.message;
         });
-    </script>
-</body>
+    }
 
+    // Log-In Function
+    function logIn() {
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+
+      if (!email || !password) {
+        document.getElementById("loginStatus").textContent = "Please fill out both fields.";
+        return;
+      }
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          document.getElementById("loginStatus").textContent = "Logged in as " + user.email;
+        })
+        .catch((error) => {
+          document.getElementById("loginStatus").textContent = "Login error: " + error.message;
+        });
+    }
+
+    // Toggle between Sign-Up and Login forms
+    function toggleForm(formType) {
+      const signUpForm = document.getElementById("signUpForm");
+      const loginForm = document.getElementById("loginForm");
+
+      if (formType === "signup") {
+        signUpForm.style.display = "block";
+        loginForm.style.display = "none";
+      } else {
+        signUpForm.style.display = "none";
+        loginForm.style.display = "block";
+      }
+    }
+
+    // Monitor Authentication State
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        console.log("Logged in as " + user.email);
+      } else {
+        console.log("User logged out.");
+      }
+    });
+  </script>
+</body>
 </html>
