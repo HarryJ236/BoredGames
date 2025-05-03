@@ -1,31 +1,34 @@
-// Load the navbar and set up auth username
-document.addEventListener("DOMContentLoaded", function () {
-  fetch("/navbar.html")
-    .then((response) => {
-      if (!response.ok) throw new Error("Failed to load navbar");
-      return response.text();
-    })
-    .then((data) => {
-      document.getElementById("navbar-container").innerHTML = data;
+// navbar.js
+document.addEventListener("DOMContentLoaded", async function () {
+  const navbarContainer = document.getElementById("navbar-container");
 
-      // After loading navbar, set username if logged in
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          firebase.firestore().collection("users").doc(user.uid).get()
-            .then((doc) => {
-              if (doc.exists) {
-                const username = doc.data().username || user.email;
-                const usernameSpan = document.getElementById("navbarUsername");
-                if (usernameSpan) {
-                  usernameSpan.textContent = username;
-                }
-              }
-            })
-            .catch((error) => {
-              console.error("Failed to fetch username:", error);
-            });
+  try {
+    const response = await fetch("/navbar.html");
+    if (!response.ok) throw new Error("Failed to load navbar");
+    const html = await response.text();
+    navbarContainer.innerHTML = html;
+
+    // Firebase logic after navbar has loaded
+    firebase.auth().onAuthStateChanged(async (user) => {
+      const accountNameElement = document.querySelector(".account-name");
+      if (user) {
+        try {
+          const userDoc = await firebase.firestore().collection("users").doc(user.uid).get();
+          if (userDoc.exists) {
+            const username = userDoc.data().username;
+            accountNameElement.textContent = username || user.email;
+          } else {
+            accountNameElement.textContent = user.email;
+          }
+        } catch (err) {
+          console.error("Error fetching user document:", err);
+          accountNameElement.textContent = user.email;
         }
-      });
-    })
-    .catch((error) => console.error("Error loading the navbar:", error));
+      } else {
+        accountNameElement.textContent = "Guest";
+      }
+    });
+  } catch (error) {
+    console.error("Error loading the navbar:", error);
+  }
 });
