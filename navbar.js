@@ -1,34 +1,19 @@
-// navbar.js
-document.addEventListener("DOMContentLoaded", async function () {
-  const navbarContainer = document.getElementById("navbar-container");
-
-  try {
-    const response = await fetch("/navbar.html");
-    if (!response.ok) throw new Error("Failed to load navbar");
-    const html = await response.text();
-    navbarContainer.innerHTML = html;
-
-    // Firebase logic after navbar has loaded
-    firebase.auth().onAuthStateChanged(async (user) => {
-      const accountNameElement = document.querySelector(".account-name");
-      if (user) {
-        try {
-          const userDoc = await firebase.firestore().collection("users").doc(user.uid).get();
-          if (userDoc.exists) {
-            const username = userDoc.data().username;
-            accountNameElement.textContent = username || user.email;
-          } else {
-            accountNameElement.textContent = user.email;
-          }
-        } catch (err) {
-          console.error("Error fetching user document:", err);
-          accountNameElement.textContent = user.email;
-        }
-      } else {
-        accountNameElement.textContent = "Guest";
+// Load Navbar HTML and initialize Firebase logic
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("/navbar.html")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to load navbar");
       }
-    });
-  } catch (error) {
-    console.error("Error loading the navbar:", error);
-  }
+      return response.text();
+    })
+    .then((data) => {
+      document.getElementById("navbar-container").innerHTML = data;
+
+      // Now load Firebase logic after navbar is in DOM
+      const script = document.createElement("script");
+      script.src = "/firebase-init.js";
+      document.body.appendChild(script);
+    })
+    .catch((error) => console.error("Error loading the navbar:", error));
 });
