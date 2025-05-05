@@ -1,4 +1,4 @@
-// firebase-init.js (all pages will refer to this for connection to firebase)
+// firebase-init.js
 const firebaseConfig = {
   apiKey: "AIzaSyCuekWtRk9TOUuchwgQ_qPZkc_BbJ0rQmQ",
   authDomain: "boredgames-website.firebaseapp.com",
@@ -13,6 +13,33 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-const doc = await db.collection("users").doc(user.uid).get();
-const username = doc.exists ? doc.data().username : user.email;
-accountNameElement.textContent = username;
+// Handle navbar username update
+firebase.auth().onAuthStateChanged(async (user) => {
+  const accountNameElement = document.querySelector(".account-name");
+  const logoutButton = document.getElementById("logoutButton");
+
+  if (!accountNameElement) return;
+
+  if (user) {
+    if (logoutButton) {
+      logoutButton.style.display = "inline-block";
+      logoutButton.onclick = () => {
+        auth.signOut().then(() => {
+          window.location.href = "/pages/registry/registration.html";
+        });
+      };
+    }
+
+    try {
+      const doc = await db.collection("users").doc(user.uid).get();
+      const username = doc.exists ? doc.data().username : user.email;
+      accountNameElement.textContent = username;
+    } catch (err) {
+      console.error("Error fetching user document:", err);
+      accountNameElement.textContent = user.email;
+    }
+  } else {
+    accountNameElement.textContent = "Guest";
+    if (logoutButton) logoutButton.style.display = "none";
+  }
+});
