@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - BoredGames</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../homepage.css">
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-    <script src="/firebase-init.js"></script>
-    <script src="/auth.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Sign Up - BoredGames</title>
+  <link rel="icon" href="/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/homepage.css" />
 </head>
-<body>
-    <!-- Navbar Placeholder -->
-    <div id="navbar-container"></div>
 
-     <!-- Main -->
-     <main class="main-content">
-    <h1>Login / Sign Up</h1>
+<body>
+  <!-- Navbar Placeholder -->
+  <div id="navbar-container"></div>
+
+  <main class="main-content">
+    <h1 class="typewriter">Login / Sign Up</h1>
 
     <div id="formContainer">
-      <!-- Sign-Up -->
-      <section id="signUpForm">
+      <!-- Sign-Up Form -->
+      <section class="registration-content" id="signUpForm">
         <h2>Sign Up</h2>
         <input type="text" id="signupUsername" placeholder="Username" />
         <input type="email" id="signupEmail" placeholder="Email" />
@@ -32,8 +28,8 @@
         <button onclick="toggleForm('login')">Already have an account? Login</button>
       </section>
 
-      <!-- Login -->
-      <section id="loginForm" style="display: none;">
+      <!-- Login Form -->
+      <section class="login-content" id="loginForm" style="display: none;">
         <h2>Log In</h2>
         <input type="email" id="loginEmail" placeholder="Email" />
         <input type="password" id="loginPassword" placeholder="Password" />
@@ -43,12 +39,65 @@
       </section>
     </div>
   </main>
-    <footer class="footer">
-        <p>&copy; 2025 BoredGames. All rights reserved.</p>
-    </footer>
 
-    <!-- Navbar functions summoner -->
-    <script src="../../navbar.js"></script>
+  <footer class="footer">
+    <div class="footer-divider"></div>
+    <p>&copy; 2025 BoredGames. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="/navbar.js"></script>
+  <script src="/firebase-init.js"></script>
+
+  <script>
+    const signUp = () => {
+      const username = document.getElementById("signupUsername").value;
+      const email = document.getElementById("signupEmail").value;
+      const password = document.getElementById("signupPassword").value;
+
+      if (!email || !password || !username) {
+        document.getElementById("signupStatus").textContent = "Fill all fields.";
+        return;
+      }
+
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          return firebase.firestore().collection("users").doc(userCredential.user.uid).set({ username });
+        })
+        .then(() => {
+          document.getElementById("signupStatus").textContent = "Signed up successfully!";
+        })
+        .catch(error => {
+          document.getElementById("signupStatus").textContent = error.message;
+        });
+    };
+
+    const logIn = () => {
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+
+      if (!email || !password) {
+        document.getElementById("loginStatus").textContent = "Enter email and password.";
+        return;
+      }
+
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(() => {
+          document.getElementById("loginStatus").textContent = "Login successful!";
+          window.location.href = "/index.html";
+        })
+        .catch(error => {
+          document.getElementById("loginStatus").textContent = error.message;
+        });
+    };
+
+    const toggleForm = (form) => {
+      document.getElementById("signUpForm").style.display = form === "signup" ? "block" : "none";
+      document.getElementById("loginForm").style.display = form === "login" ? "block" : "none";
+    };
+  </script>
 </body>
-  
 </html>
