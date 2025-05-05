@@ -12,3 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
+
+const doc = await db.collection("users").doc(user.uid).get();
+const username = doc.exists ? doc.data().username : user.email;
+accountNameElement.textContent = username;
